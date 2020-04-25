@@ -29,7 +29,7 @@ set "vism=%vism:~0,6%"
 ::width=62 (60 usable) height=16 (14 usable)
 if not exist "config.txt" ( echo CONFIG NEEDED )
 echo +------------------------------------------------------------+
-echo '                         SCImail alpha-1.0                  '
+echo '                         SCImail alpha-1.1                  '
 echo '                                                            '
 echo '    R - check for new mail          User ID: %useraddress%  '
 echo '        and synchronize             New mail: %vism%        '
@@ -45,7 +45,7 @@ echo '    Synchronization automatic every 300 seconds             '
 echo '                                                            '
 echo +------------------------------------------------------------+
 
-choice /C risc /N /D c /T 300 
+choice /C risc /N /D r /T 300 
 
 if %ERRORLEVEL% == 1 (
 call data_sync.bat
