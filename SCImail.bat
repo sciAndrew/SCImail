@@ -29,7 +29,7 @@ set "vism=%vism:~0,6%"
 ::width=62 (60 usable) height=16 (14 usable)
 if not exist "config.txt" ( echo CONFIG NEEDED )
 echo +------------------------------------------------------------+
-echo '                         SCImail alpha-1.2                  '
+echo '                         SCImail alpha-1.3                  '
 echo '                                                            '
 echo '    R - check for new mail          User ID: %useraddress%  '
 echo '        and synchronize             New mail: %vism%        '

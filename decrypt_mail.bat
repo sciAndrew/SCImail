@@ -1,14 +1,18 @@
 setlocal EnableDelayedExpansion
 echo off
 
+call clock.bat
+set /a clocklimit=%clock%-2629743
+::clock limit is clock minus 1 month in seconds
+
 set /a newmail=%newmail%+0
 
 if not exist "store.txt" ( break >> "store.txt" && goto lastline )
 if not exist "mymail.txt" ( break >> "mymail.txt" )
 if not exist "trash.txt" ( break >> "trash.txt" )
 
-for /f "tokens=2 delims=-" %%a in (store.txt ) do (
-call :check_my_mail %%a
+for /f "tokens=1-2 delims=-" %%a in (store.txt ) do (
+if %%a gtr %clocklimit% ( if %%a lss %clock% ( call :check_my_mail %%b ) )
 )
 
 
