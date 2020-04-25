@@ -46,11 +46,11 @@ set "line_2______________________________________________=%mail_contents:~60,60%
 set "line_3______________________________________________=%mail_contents:~120,60%%spaces_60%"
 set "line_4______________________________________________=%mail_contents:~180,60%%spaces_60%"
 set "line_5______________________________________________=%mail_contents:~240,60%%spaces_60%"
-set "line_6______________________________________________=%mail_contents:~360,60%%spaces_60%"
-set "line_7______________________________________________=%mail_contents:~420,60%%spaces_60%"
-set "line_8______________________________________________=%mail_contents:~480,60%%spaces_60%"
-set "line_9______________________________________________=%mail_contents:~540,60%%spaces_60%"
-set "line_10_____________________________________________=%mail_contents:~600,60%%spaces_60%"
+set "line_6______________________________________________=%mail_contents:~300,60%%spaces_60%"
+set "line_7______________________________________________=%mail_contents:~360,60%%spaces_60%"
+set "line_8______________________________________________=%mail_contents:~420,60%%spaces_60%"
+set "line_9______________________________________________=%mail_contents:~480,60%%spaces_60%"
+set "line_10_____________________________________________=%mail_contents:~540,60%%spaces_60%"
 
 
 cls
@@ -76,7 +76,7 @@ echo +------------------------------------------------------------+
 choice /C BND
 
 if "%errorlevel%"=="1" ( goto lastline )
-if "%errorlevel%"=="2" (
+if "%errorlevel%"=="3" (
  for /f %%f in (mymail.txt ) do ( echo %%f>> trash.txt )
  break>mymail.txt
  goto lastline
