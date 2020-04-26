@@ -1,4 +1,4 @@
 # SCImail
-encrypted mail through drive P
+encrypted mail through a shared network drive available to multiple computers
 
 to use: save all files to a folder and run "SCImail.bat"
