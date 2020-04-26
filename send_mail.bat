@@ -98,6 +98,6 @@ for /f %%f in ('call clencryptor.bat %FULLMAIL% %Rkey_1% %Rkey_2%') do ( set "EN
 echo synchronizing clock...
 call clock.bat
 echo %clock%-%ENCRYPTEDMAIL%>>store.txt
-echo %clock%-%ENCRYPTEDMAIL%>>P:\SCImail.txt
+echo %clock%-%ENCRYPTEDMAIL%>>%pdrive%:\SCImail.txt
 
 :lastline

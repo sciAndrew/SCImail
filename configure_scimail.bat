@@ -1,6 +1,6 @@
 echo off
 
-
+set "drivenotfound=false"
 :render
 if %key1% lss 0 ( set /a key1=%key1% * -1 )
 set "viskey1=%key1%         "
@@ -14,6 +14,10 @@ set "useraddress=%useraddress:~0,6%______"
 set "useraddress=%useraddress:~0,6%             "
 set "useraddress=%useraddress:~0,13%"
 
+set "vispath=%pdrive%         "
+set "vispath=%vispath:~0,10%"
+
+
 cls
 echo +------------------------------------------------------------+
 echo '                                                            '
@@ -23,16 +27,17 @@ echo '    key 2 : %viskey2%         ( shift+B to change )         '
 echo '                                                            '
 echo '    address : %useraddress%   ( shift+C to change )         '
 echo '                                                            '
+echo '    drive : %vispath%         ( shift+D to change )         '
 echo '                                                            '
+echo '          shift+F to find drive automatically               '
+echo '  only works if other SCImail client synchronized recently  '
 echo '                                                            '
-echo '                                                            '
-echo '                                                            '
-echo '                                                            '
-echo '    shift+D to go back          shift+S to save             '
+echo '    shift+X to go back          shift+S to save             '
 echo '                                                            '
 echo +------------------------------------------------------------+
+if "%drivenotfound%"=="true" ( echo shared drive not found )
 
-choice /C ABCDS /CS
+choice /C ABCXSDF /CS
 
 if "%errorlevel%"=="1" (
 set /p key1=key 1 : max 2 digit number, must be bigger than 0 : 
@@ -50,10 +55,125 @@ if "%errorlevel%"=="4" ( goto lastline )
 
 if "%errorlevel%"=="5" ( goto write_config )
 
+if "%errorlevel%"=="6" (
+set /p pdrive=letter of the shared drive, for example P : 
+)
+if "%errorlevel%"=="7" (
+ set "drivenotfound=true"
+ if exist A:\SCImail.txt (
+  set "pdrive=A"
+  set "drivenotfound=false"
+ )
+ if exist B:\SCImail.txt (
+  set "pdrive=B"
+  set "drivenotfound=false"
+ )
+ if exist C:\SCImail.txt (
+  set "pdrive=C"
+  set "drivenotfound=false"
+ )
+ if exist D:\SCImail.txt (
+  set "pdrive=D"
+  set "drivenotfound=false"
+ )
+ if exist E:\SCImail.txt (
+  set "pdrive=E"
+  set "drivenotfound=false"
+ )
+ if exist F:\SCImail.txt (
+  set "pdrive=F"
+  set "drivenotfound=false"
+ )
+ if exist G:\SCImail.txt (
+  set "pdrive=G"
+  set "drivenotfound=false"
+ )
+ if exist H:\SCImail.txt (
+  set "pdrive=H"
+  set "drivenotfound=false"
+ )
+ if exist I:\SCImail.txt (
+  set "pdrive=I"
+  set "drivenotfound=false"
+ )
+ if exist I:\SCImail.txt (
+  set "pdrive=I"
+  set "drivenotfound=false"
+ )
+ if exist J:\SCImail.txt (
+  set "pdrive=J"
+  set "drivenotfound=false"
+ )
+ if exist K:\SCImail.txt (
+  set "pdrive=K"
+  set "drivenotfound=false"
+ )
+ if exist L:\SCImail.txt (
+  set "pdrive=L"
+  set "drivenotfound=false"
+ )
+ if exist M:\SCImail.txt (
+  set "pdrive=M"
+  set "drivenotfound=false"
+ )
+ if exist N:\SCImail.txt (
+  set "pdrive=N"
+  set "drivenotfound=false"
+ )
+ if exist O:\SCImail.txt (
+  set "pdrive=O"
+  set "drivenotfound=false"
+ )
+ if exist P:\SCImail.txt (
+  set "pdrive=P"
+  set "drivenotfound=false"
+ )
+ if exist Q:\SCImail.txt (
+  set "pdrive=Q"
+  set "drivenotfound=false"
+ )
+ if exist R:\SCImail.txt (
+  set "pdrive=R"
+  set "drivenotfound=false"
+ )
+ if exist S:\SCImail.txt (
+  set "pdrive=S"
+  set "drivenotfound=false"
+ )
+ if exist T:\SCImail.txt (
+  set "pdrive=T"
+  set "drivenotfound=false"
+ )
+ if exist U:\SCImail.txt (
+  set "pdrive=U"
+  set "drivenotfound=false"
+ )
+ if exist V:\SCImail.txt (
+  set "pdrive=V"
+  set "drivenotfound=false"
+ )
+ if exist W:\SCImail.txt (
+  set "pdrive=W"
+  set "drivenotfound=false"
+ )
+ if exist X:\SCImail.txt (
+  set "pdrive=X"
+  set "drivenotfound=false"
+ )
+ if exist Y:\SCImail.txt (
+  set "pdrive=Y"
+  set "drivenotfound=false"
+ )
+ if exist Z:\SCImail.txt (
+  set "pdrive=Z"
+  set "drivenotfound=false"
+ )
+)
+
 goto render
 
 :write_config
 
-echo %useraddress:~0,6%;%key1%;%key2%>config.txt
+echo %useraddress:~0,6%;%key1%;%key2%;%pdrive%>config.txt
 
 :lastline
