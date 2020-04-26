@@ -3,9 +3,9 @@ set clock=0
 call clock.bat
 
 set key1=16
-set key2=16
+set key2=128
 
-set "useraddress=%username%00000000000"
+set "useraddress=noconf"
 
 :start
 if exist "config.txt" (
@@ -27,9 +27,9 @@ cls
 set "vism=%newmail%      "
 set "vism=%vism:~0,6%"
 ::width=62 (60 usable) height=16 (14 usable)
-if not exist "config.txt" ( echo CONFIG NEEDED )
+if not exist "config.txt" ( echo CONFIGURATION NEEDED )
 echo +------------------------------------------------------------+
-echo '                         SCImail alpha-1.3                  '
+echo '                         SCImail alpha-1.4                  '
 echo '                                                            '
 echo '    R - check for new mail          User ID: %useraddress%  '
 echo '        and synchronize             New mail: %vism%        '
