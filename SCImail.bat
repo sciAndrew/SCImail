@@ -6,7 +6,7 @@ set key1=16
 set key2=128
 
 set "useraddress=noconf"
-set "pdrive=P"
+set "pdrive=P:\"
 
 :start
 if exist "config.txt" (
@@ -32,7 +32,7 @@ set "vism=%vism:~0,6%"
 ::width=62 (60 usable) height=16 (14 usable)
 if not exist "config.txt" ( echo CONFIGURATION NEEDED )
 echo +------------------------------------------------------------+
-echo '                         SCImail alpha-1.5                  '
+echo '                         SCImail alpha-1.6                  '
 echo '                                                            '
 echo '    R - check for new mail          User ID: %useraddress%  '
 echo '        and synchronize             New mail: %vism%        '

@@ -6,13 +6,13 @@ set /a clocklimit=%clock%-2629743
 set "maxBsize=1000000"
 
 ::create missing files if don't exist
-if not exist "%pdrive%:\SCImail.txt" ( break >> "%pdrive%:\SCImail.txt" )
+if not exist "%pdrive%SCImail.txt" ( break >> "%pdrive%SCImail.txt" )
 if not exist "store.txt" ( break >> "store.txt" )
 
 FOR /F "usebackq" %%A IN ('store.txt') DO ( set size=%%~zA )
 
 ::download any new/missing lines to store
-for /f "tokens=1-2 delims=- " %%a in (%pdrive%:\SCImail.txt ) do (
+for /f "tokens=1-2 delims=- " %%a in (%pdrive%SCImail.txt ) do (
  if %%~za leq 800 (
   if %%a gtr %clocklimit% (
    if %%a lss %clock% (
@@ -33,7 +33,7 @@ for /f "tokens=1-2 delims=-" %%a in (store.txt ) do (
  if %%~za leq 800 (
   if %%a gtr %clocklimit% (
    if %%a lss %clock% (
-    find /c "%%a-%%b" "%pdrive%:\SCImail.txt"  || ( echo %%a-%%b>> "%pdrive%:\SCImail.txt" )
+    find /c "%%a-%%b" "%pdrive%SCImail.txt"  || ( echo %%a-%%b>> "%pdrive%SCImail.txt" )
    )
   )
  )
