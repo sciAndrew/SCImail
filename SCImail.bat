@@ -1,4 +1,4 @@
-set "SCImailversion=15"
+set "SCImailversion=16"
 set newmail=0
 set clock=0
 call clock.bat
