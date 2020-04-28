@@ -1,0 +1,4 @@
+12
+alpha 1.8
+added updater script
+added update option to configure menu
