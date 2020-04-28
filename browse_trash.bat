@@ -1,14 +1,14 @@
 if not exist "store.txt" ( break >> "store.txt" )
-if not exist "mymail.txt" ( break >> "mymail.txt" )
+if not exist "trash.txt" ( break >> "trash.txt" )
 echo off
 set "spaces_60=                                                            "
 
-for /f "tokens=1-3 delims=-" %%a in (mymail.txt ) do ( call :load_mail %%a %%b %%c )
+for /f "tokens=1-3 delims=-" %%a in (trash.txt ) do ( call :load_mail %%a %%b %%c )
 
 cls
 echo +------------------------------------------------------------+
 echo '                                                            '
-echo '    NO MORE MAIL                                            '
+echo '    NO MORE TRASH                                           '
 echo '                                                            '
 echo '                                                            '
 echo '                                                            '
@@ -20,15 +20,14 @@ echo '                                                            '
 echo '                                                            '
 echo '                                                            '
 echo +------------------------------------------------------------+
-echo 'shift+B=back                shift+D=delete all mail         '
+echo 'shift+B=back                shift+D=delete trash permanently'
 echo +------------------------------------------------------------+
 
 choice /C BD /CS
 
 if "%errorlevel%"=="1" ( goto lastline )
 if "%errorlevel%"=="2" (
- for /f %%f in (mymail.txt ) do ( echo %%f>> trash.txt )
- break>mymail.txt
+ break>trash.txt
  goto lastline
 )
 
@@ -68,7 +67,7 @@ echo '%line_8______________________________________________:~0,60%'
 echo '%line_9______________________________________________:~0,60%'
 echo '%line_10_____________________________________________:~0,60%'
 echo +------------------------------------------------------------+
-echo 'shift+B=back  shift+N=next  shift+D=delete all mail         '
+echo 'shift+B=back  shift+N=next  shift+D=delete trash permanently'
 echo +------------------------------------------------------------+
 
 
@@ -77,8 +76,7 @@ choice /C BND /CS
 
 if "%errorlevel%"=="1" ( goto lastline )
 if "%errorlevel%"=="3" (
- for /f %%f in (mymail.txt ) do ( echo %%f>> trash.txt )
- break>mymail.txt
+ break>trash.txt
  goto lastline
 )
 
