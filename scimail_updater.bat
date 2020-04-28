@@ -1,7 +1,8 @@
 echo off
+set "pathtohere=%~dp0"
 del /q version.txt
-ping raw.githubusercontent.com || ( set "couldnotupdate=true" && goto lastline )
-bitsadmin /transfer "scimailupdate" https://raw.githubusercontent.com/sciAndrew/SCImail/master/version.txt version.txt
+ping -n 2 raw.githubusercontent.com || ( set "couldnotupdate=true" && goto lastline )
+bitsadmin /transfer "scimailupdate" https://raw.githubusercontent.com/sciAndrew/SCImail/master/version.txt %pathtohere%version.txt
 set /p newversion=<version.txt
 if %newversion% leq %SCImailversion% ( set "couldnotupdate=uptodate" && goto lastline )
 echo new version available
@@ -10,7 +11,6 @@ echo you will have to start SCImail.bat again to use the new version
 echo do you want to update : n if no, y if yes
 choice /C ny
 if %errorlevel% == 1 ( goto lastline )
-set "pathtohere=%~dp0"
 
 bitsadmin /transfer "scimailupdate" https://raw.githubusercontent.com/sciAndrew/SCImail/master/SCImail.bat %pathtohere%SCImail.bat
 bitsadmin /transfer "scimailupdate" https://raw.githubusercontent.com/sciAndrew/SCImail/master/browse_mail.bat %pathtohere%browse_mail.bat
