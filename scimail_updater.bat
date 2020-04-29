@@ -7,7 +7,7 @@ set /p newversion=<version.txt
 if %newversion% leq %SCImailversion% ( set "couldnotupdate=uptodate" && goto lastline )
 echo new version available
 for /f "skip=1 tokens=* delims=" %%f in (version.txt) do ( echo %%f )
-echo you will have to start SCImail.bat again to use the new version
+echo the window will be closed and you will have to start SCImail.bat again to use the new version
 echo do you want to update : n if no, y if yes
 choice /C ny
 if %errorlevel% == 1 ( goto lastline )
@@ -22,8 +22,6 @@ bitsadmin /transfer "scimailupdate_data_sync.bat" https://raw.githubusercontent.
 bitsadmin /transfer "scimailupdate_decrypt_mail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/decrypt_mail.bat %pathtohere%decrypt_mail.bat
 bitsadmin /transfer "scimailupdate_send_mail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/send_mail.bat %pathtohere%send_mail.bat
 bitsadmin /transfer "scimailupdate_SCImail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/SCImail.bat %pathtohere%SCImail.bat
-
-echo SCImail updated
-echo press any key to exit and run SCIchat.bat again to use the new version
+bitsadmin /transfer "scimailupdate_scimail_updater.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/scimail_updater.bat %pathtohere%scimail_updater.bat && exit
 
 :lastline

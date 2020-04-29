@@ -1,4 +1,3 @@
-17
-alpha 1.13
-scimail_updater.bat now downloads SCImail.bat last to avoid partial updates being considered complete
-added exit SCImail option to main menu
+18
+alpha 1.14
+scimail_updater.bat now also updates itself and exits after the update
