@@ -1,3 +1,4 @@
-16
-alpha 1.12
-fixed scimail_updater.bat using wrong addresses to download files resulting in failed downloads
+17
+alpha 1.13
+scimail_updater.bat now downloads SCImail.bat last to avoid partial updates being considered complete
+added exit SCImail option to main menu

@@ -12,7 +12,6 @@ echo do you want to update : n if no, y if yes
 choice /C ny
 if %errorlevel% == 1 ( goto lastline )
 
-bitsadmin /transfer "scimailupdate_SCImail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/SCImail.bat %pathtohere%SCImail.bat
 bitsadmin /transfer "scimailupdate_browse_mail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/browse_mail.bat %pathtohere%browse_mail.bat
 bitsadmin /transfer "scimailupdate_browse_trash.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/browse_trash.bat %pathtohere%browse_trash.bat
 bitsadmin /transfer "scimailupdate_cldecryptor.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/cldecryptor.bat %pathtohere%cldecryptor.bat
@@ -22,11 +21,9 @@ bitsadmin /transfer "scimailupdate_configure_scimail.bat" https://raw.githubuser
 bitsadmin /transfer "scimailupdate_data_sync.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/data_sync.bat %pathtohere%data_sync.bat
 bitsadmin /transfer "scimailupdate_decrypt_mail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/decrypt_mail.bat %pathtohere%decrypt_mail.bat
 bitsadmin /transfer "scimailupdate_send_mail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/send_mail.bat %pathtohere%send_mail.bat
+bitsadmin /transfer "scimailupdate_SCImail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/SCImail.bat %pathtohere%SCImail.bat
 
 echo SCImail updated
 echo press any key to exit and run SCIchat.bat again to use the new version
-timeout /nobreak 3
-pause
-exit
 
 :lastline
