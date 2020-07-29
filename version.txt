@@ -1,3 +1,4 @@
-20
-alpha 1.16
-fix - version variable was set to the wrong version
+21
+alpha 1.17
+Updater split into two files to avoid using an outdated updater every time scimail updates
+changed "exit SCImail" option to force the program to stop
