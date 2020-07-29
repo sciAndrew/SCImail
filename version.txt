@@ -1,3 +1,3 @@
-19
-alpha 1.15
-fix - scimail_updater.bat failing to update due to files already existing
+20
+alpha 1.16
+fix - version variable was set to the wrong version
