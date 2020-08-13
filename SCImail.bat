@@ -1,4 +1,4 @@
-set "SCImailversion=22"
+set "SCImailversion=23"
 set newmail=0
 set clock=0
 call clock.bat
@@ -73,14 +73,17 @@ goto start
 
 if %ERRORLEVEL% == 4 (
 call configure_scimail.bat
+goto start
 )
 
 if %ERRORLEVEL% == 5 (
 call browse_trash.bat
+goto start
 )
 
 if %ERRORLEVEL% == 6 (
 call scimail_preupdater.bat
+goto start
 )
 
 if %ERRORLEVEL% == 7 (
