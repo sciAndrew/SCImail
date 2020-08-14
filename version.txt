@@ -1,3 +1,5 @@
-23
-alpha 1.19
-fixed opening trash after saving configuration
+24
+alpha 1.20
+changed delimeter character from - to :
+fixed example path being wrong
+added github link to SCImail.txt on shared drive

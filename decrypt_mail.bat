@@ -11,7 +11,7 @@ if not exist "store.txt" ( break >> "store.txt" && goto lastline )
 if not exist "mymail.txt" ( break >> "mymail.txt" )
 if not exist "trash.txt" ( break >> "trash.txt" )
 
-for /f "tokens=1-2 delims=-" %%a in (store.txt ) do (
+for /f "tokens=1-2 delims=:" %%a in (store.txt ) do (
 if %%a gtr %clocklimit% ( if %%a lss %clock% ( call :check_my_mail %%b %%a ) )
 )
 
@@ -31,7 +31,7 @@ for /f %%f in ('call cldecryptor.bat %decryptFULL% %key1% %key2%') do ( set "dec
 if "%decryptedFULL%"=="" ( goto lastline )
 find /c "%msgclock%" "mymail.txt" && goto lastline
 find /c "%msgclock%" "trash.txt" && goto lastline
-find /c "%decryptedFULL%" "mymail.txt"  || ( find /c "%decryptedFULL%" "trash.txt"  || ( echo %msgclock%-%decryptedFULL%-%date%>> "mymail.txt" ) )
+find /c "%decryptedFULL%" "mymail.txt"  || ( find /c "%decryptedFULL%" "trash.txt"  || ( echo %msgclock%:%decryptedFULL%:%date%>> "mymail.txt" ) )
 
 
 

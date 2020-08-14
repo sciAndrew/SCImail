@@ -3,7 +3,7 @@ if not exist "trash.txt" ( break >> "trash.txt" )
 echo off
 set "spaces_60=                                                            "
 
-for /f "tokens=1-3 delims=-" %%a in (trash.txt ) do ( call :load_mail %%a %%b %%c )
+for /f "tokens=1-3 delims=:" %%a in (trash.txt ) do ( call :load_mail %%a %%b %%c )
 
 cls
 echo +------------------------------------------------------------+

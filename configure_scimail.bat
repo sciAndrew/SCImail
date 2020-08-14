@@ -56,7 +56,7 @@ if "%errorlevel%"=="4" ( goto lastline )
 if "%errorlevel%"=="5" ( goto write_config )
 
 if "%errorlevel%"=="6" (
-set /p pdrive=shared drive or folder path, for example P\:  : 
+set /p pdrive=shared drive or folder path, for example P:\  : 
 )
 if "%errorlevel%"=="7" (
  set "drivenotfound=true"

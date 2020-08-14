@@ -97,7 +97,8 @@ echo encrypting mail...
 for /f %%f in ('call clencryptor.bat %FULLMAIL% %Rkey_1% %Rkey_2%') do ( set "ENCRYPTEDMAIL=%%f" )
 echo synchronizing clock...
 call clock.bat
-echo %clock%-%ENCRYPTEDMAIL%>>store.txt
-echo %clock%-%ENCRYPTEDMAIL%>>%pdrive%SCImail.txt
+echo %clock%:%ENCRYPTEDMAIL%>>store.txt
+if not exist "%pdrive%SCImail.txt" ( echo https://github.com/sciAndrew/SCImail >> "%pdrive%SCImail.txt" )
+echo %clock%:%ENCRYPTEDMAIL%>>%pdrive%SCImail.txt
 
 :lastline
