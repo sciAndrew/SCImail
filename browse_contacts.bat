@@ -11,7 +11,7 @@ goto fillspaces
 
 :reread
 set contactnumber=0
-for /f "tokens=1-4 delims=-" %%a in (contacts.txt ) do ( call :load_contact %%a %%b %%c %%d )
+for /f "tokens=1-7 delims=-" %%a in (contacts.txt ) do ( call :load_contact %%a %%b %%c %%d %e %f %g )
 
 cls
 echo +------------------------------------------------------------+
@@ -52,7 +52,7 @@ goto lastline
 :load_contact
 set /a contactnumber=%contactnumber%+1
 set "thiscontactdescription=%4"
-set "nextcontact=%1 %2 %3 %4                  "
+set "nextcontact=%1 %2 %3 %4 %5 %6 %7                  "
 set "contct_xx_xxx_description_%contactnumber%=%nextcontact:~0,29%"
 
 :lastline
