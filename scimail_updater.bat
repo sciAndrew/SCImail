@@ -14,6 +14,7 @@ bitsadmin /transfer "scimailupdate_decrypt_mail.bat" https://raw.githubuserconte
 bitsadmin /transfer "scimailupdate_send_mail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/send_mail.bat %pathtohere%send_mail.bat.new  || ( set "couldnotupdate=true" )
 bitsadmin /transfer "scimailupdate_SCImail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/SCImail.bat %pathtohere%SCImail.bat.new  || ( set "couldnotupdate=true" )
 bitsadmin /transfer "scimailupdate_scimail_preupdater.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/scimail_preupdater.bat %pathtohere%scimail_preupdater.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_browse_contacts.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/browse_contacts.bat %pathtohere%browse_contacts.bat.new  || ( set "couldnotupdate=true" )
 
 if "%couldnotupdate%"=="true" ( goto lastline ) else (
 type browse_mail.bat.new > browse_mail.bat
@@ -27,6 +28,7 @@ type decrypt_mail.bat.new > decrypt_mail.bat
 type send_mail.bat.new > send_mail.bat
 type SCImail.bat.new > SCImail.bat
 type scimail_preupdater.bat.new > scimail_preupdater.bat
+type browse_contacts.bat.new > browse_contacts.bat
 del /q *.new
 exit
 )

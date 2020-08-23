@@ -37,10 +37,10 @@ echo '%line_8______________________________________________:~0,60%'
 echo '%line_9______________________________________________:~0,60%'
 echo '%line_10_____________________________________________:~0,60%'
 echo +------------------------------------------------------------+
-echo 'shift+S=_     shift+B=back  shift+X=backspace shift+E=send  '
+echo 'use shift' S=space ' B=back ' X=delete ' E=send ' C=contacts'
 echo +------------------------------------------------------------+
 
-choice /C abcdefghijklmnopqrstuvwxyzSBXE /CS
+choice /C abcdefghijklmnopqrstuvwxyzSBXEC /CS
 
 if "%errorlevel%"=="28" ( goto lastline )
 if "%errorlevel%"=="29" (
@@ -48,6 +48,8 @@ if "%errorlevel%"=="29" (
  if "%mail_contents%"=="_" ( set "tgtusraddrs=%tgtusraddrs:~0,-1%" )
 )
 if "%errorlevel%"=="30" ( goto send )
+
+if "%errorlevel%"=="31" ( call browse_contacts.bat )
 
 if %errorlevel% gtr 27 ( goto render )
 
