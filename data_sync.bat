@@ -2,14 +2,22 @@ echo off
 call clock.bat
 set /a clocklimit=%clock%-2629743
 ::clock limit is clock minus 1 month in seconds
-::max store size set to 1000000 bytes = 1MB
-set "maxBsize=1000000"
+::max store size set to 30000 bytes = 30KB
+set "maxBsize=30000"
 
 ::create missing files if don't exist
 if not exist "%pdrive%SCImail.txt" ( echo https://github.com/sciAndrew/SCImail >> "%pdrive%SCImail.txt" )
 if not exist "store.txt" ( break >> "store.txt" )
 
 FOR /F "usebackq" %%A IN ('store.txt') DO ( set size=%%~zA )
+
+
+FOR /F "usebackq" %%A IN ('%pdrive%SCImail.txt') DO ( set publicsize=%%~zA )
+
+if %publicsize% GTR %maxBsize% (
+    echo public store full, removing
+	echo https://github.com/sciAndrew/SCImail > %pdrive%SCImail.txt
+)
 
 ::download any new/missing lines to store
 for /f "tokens=1-2 delims=: " %%a in (%pdrive%SCImail.txt ) do (

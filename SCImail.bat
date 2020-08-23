@@ -1,4 +1,4 @@
-set "SCImailversion=25"
+set "SCImailversion=26"
 set newmail=0
 set clock=0
 call clock.bat
@@ -37,19 +37,19 @@ if not exist "config.txt" ( echo CONFIGURATION NEEDED )
 if "%couldnotupdate%"=="true" ( echo COULD NOT UPDATE )
 if "%couldnotupdate%"=="uptodate" ( echo NO NEW VERSIONS AVAILABLE )
 echo +------------------------------------------------------------+
-echo '                         SCImail alpha-1.21                 '
+echo '                        SCImail alpha-1.22                  '
 echo '                                                            '
-echo '    R - check for new mail          User ID: %useraddress%  '
-echo '        and synchronize             New mail: %vism%        '
+echo '   R - check for new mail          User ID: %useraddress%   '
+echo '       and synchronize             New mail: %vism%         '
 echo '                                                            '
-echo '    I - inbox                             U - check updates '
-echo '    T - trash                                               '
-echo '    B - contacts                                            '
+echo '   I - inbox                             U - check updates  '
+echo '   T - trash                                                '
+echo '   B - contacts                                             '
 echo '                                                            '
-echo '    S - write and send mail                                 '
-echo '    C - configure SCImail                 X - exit SCImail  '
+echo '   S - write and send mail                                  '
+echo '   C - configure SCImail                 X - exit SCImail   '
 echo '                                                            '
-echo '    Synchronization automatic every 300 seconds             '
+echo '   Synchronization automatic every 900 seconds [15 minutes] '
 echo '                                                            '
 echo +------------------------------------------------------------+
 
