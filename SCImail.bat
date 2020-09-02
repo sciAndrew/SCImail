@@ -1,4 +1,4 @@
-set "SCImailversion=27"
+set "SCImailversion=28"
 set newmail=0
 set clock=0
 call clock.bat
@@ -11,13 +11,16 @@ set key2=128
 set "useraddress=noconf"
 set "pdrive=P:\"
 
+set "notify=silent"
+
 :start
 if exist "config.txt" (
- for /f "tokens=1-4 delims=;" %%a in (config.txt ) do ( 
+ for /f "tokens=1-5 delims=;" %%a in (config.txt ) do ( 
  set "useraddress=%%a"
  set "key1=%%b"
  set "key2=%%c" 
  set "pdrive=%%d"
+ set "notify=%%e"
  )
 )
 
@@ -28,6 +31,10 @@ set newmail=0
 
 for /f %%l in (mymail.txt) do ( call :countnew )
 
+if "%notify%"=="notify" (
+	if %newmail% gtr 0 ( msg %username% "%newmail% NEW MAIL" )
+)
+
 echo off
 cls
 set "vism=%newmail%      "
@@ -37,7 +44,7 @@ if not exist "config.txt" ( echo CONFIGURATION NEEDED )
 if "%couldnotupdate%"=="true" ( echo COULD NOT UPDATE )
 if "%couldnotupdate%"=="uptodate" ( echo NO NEW VERSIONS AVAILABLE )
 echo +------------------------------------------------------------+
-echo '                        SCImail alpha-1.23                  '
+echo '                        SCImail alpha-1.24                  '
 echo '                                                            '
 echo '   R - check for new mail          User ID: %useraddress%   '
 echo '       and synchronize             New mail: %vism%         '

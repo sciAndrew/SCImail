@@ -1,4 +1,3 @@
-27
-alpha 1.23
-actually changed automatic synchronization interval to 15 minutes
-fixed spaces causing problems in contacts
+28
+alpha 1.24
+Added notification on new mail to config
