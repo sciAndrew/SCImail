@@ -20,7 +20,6 @@ set "vispath_______________long=%vispath_______________long:~0,28%"
 
 cls
 echo +------------------------------------------------------------+
-echo '                                                            '
 echo ' ( shift+A to change ) key 1 : %viskey1%                    '
 echo '                                                            '
 echo ' ( shift+B to change ) key 2 : %viskey2%                    '
@@ -29,15 +28,16 @@ echo ' ( shift+C to change ) address : %useraddress%              '
 echo '                                                            '
 echo ' ( shift+D to change ) drive : %vispath_______________long% '
 echo '                                                            '
+echo ' ( shift+E to change ) mail notification : %notify%           '
+echo '                                                            '
 echo '          shift+F to find drive automatically               '
 echo '  only works if other SCImail client synchronized recently  '
 echo '                                                            '
 echo '    shift+X to go back          shift+S to save             '
-echo '                                                            '
 echo +------------------------------------------------------------+
 if "%drivenotfound%"=="true" ( echo shared drive not found )
 
-choice /C ABCXSDF /CS
+choice /C ABCXSDFE /CS
 
 if "%errorlevel%"=="1" (
 set /p key1=key 1 : max 2 digit number, must be bigger than 0 : 
@@ -166,10 +166,14 @@ if "%errorlevel%"=="7" (
  )
 )
 
+if "%errorlevel%"=="8" (
+if "%notify%"=="notify" ( set "notify=silent" ) else ( set "notify=notify" )
+)
+
 goto render
 
 :write_config
 
-echo %useraddress:~0,6%;%key1%;%key2%;%pdrive%>config.txt
+echo %useraddress:~0,6%;%key1%;%key2%;%pdrive%;%notify%>config.txt
 
 :lastline
