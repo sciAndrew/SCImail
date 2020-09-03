@@ -3,18 +3,18 @@ set "pathtohere=%~dp0"
 
 del /q *.new
 
-bitsadmin /transfer "scimailupdate_browse_mail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/browse_mail.bat %pathtohere%browse_mail.bat.new || ( set "couldnotupdate=true" )
-bitsadmin /transfer "scimailupdate_browse_trash.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/browse_trash.bat %pathtohere%browse_trash.bat.new  || ( set "couldnotupdate=true" )
-bitsadmin /transfer "scimailupdate_cldecryptor.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/cldecryptor.bat %pathtohere%cldecryptor.bat.new  || ( set "couldnotupdate=true" )
-bitsadmin /transfer "scimailupdate_clencryptor.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/clencryptor.bat %pathtohere%clencryptor.bat.new  || ( set "couldnotupdate=true" )
-bitsadmin /transfer "scimailupdate_clock.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/clock.bat %pathtohere%clock.bat.new  || ( set "couldnotupdate=true" )
-bitsadmin /transfer "scimailupdate_configure_scimail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/configure_scimail.bat %pathtohere%configure_scimail.bat.new  || ( set "couldnotupdate=true" )
-bitsadmin /transfer "scimailupdate_data_sync.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/data_sync.bat %pathtohere%data_sync.bat.new  || ( set "couldnotupdate=true" )
-bitsadmin /transfer "scimailupdate_decrypt_mail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/decrypt_mail.bat %pathtohere%decrypt_mail.bat.new  || ( set "couldnotupdate=true" )
-bitsadmin /transfer "scimailupdate_send_mail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/send_mail.bat %pathtohere%send_mail.bat.new  || ( set "couldnotupdate=true" )
-bitsadmin /transfer "scimailupdate_SCImail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/SCImail.bat %pathtohere%SCImail.bat.new  || ( set "couldnotupdate=true" )
-bitsadmin /transfer "scimailupdate_scimail_preupdater.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/scimail_preupdater.bat %pathtohere%scimail_preupdater.bat.new  || ( set "couldnotupdate=true" )
-bitsadmin /transfer "scimailupdate_browse_contacts.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/master/browse_contacts.bat %pathtohere%browse_contacts.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_browse_mail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/browse_mail.bat %pathtohere%browse_mail.bat.new || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_browse_trash.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/browse_trash.bat %pathtohere%browse_trash.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_cldecryptor.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/cldecryptor.bat %pathtohere%cldecryptor.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_clencryptor.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/clencryptor.bat %pathtohere%clencryptor.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_clock.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/clock.bat %pathtohere%clock.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_configure_scimail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/configure_scimail.bat %pathtohere%configure_scimail.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_data_sync.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/data_sync.bat %pathtohere%data_sync.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_decrypt_mail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/decrypt_mail.bat %pathtohere%decrypt_mail.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_send_mail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/send_mail.bat %pathtohere%send_mail.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_SCImail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/SCImail.bat %pathtohere%SCImail.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_scimail_preupdater.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/scimail_preupdater.bat %pathtohere%scimail_preupdater.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_browse_contacts.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/browse_contacts.bat %pathtohere%browse_contacts.bat.new  || ( set "couldnotupdate=true" )
 
 if "%couldnotupdate%"=="true" ( goto lastline ) else (
 type browse_mail.bat.new > browse_mail.bat
