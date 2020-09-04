@@ -15,6 +15,9 @@ bitsadmin /transfer "scimailupdate_send_mail.bat" https://raw.githubusercontent.
 bitsadmin /transfer "scimailupdate_SCImail.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/SCImail.bat %pathtohere%SCImail.bat.new  || ( set "couldnotupdate=true" )
 bitsadmin /transfer "scimailupdate_scimail_preupdater.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/scimail_preupdater.bat %pathtohere%scimail_preupdater.bat.new  || ( set "couldnotupdate=true" )
 bitsadmin /transfer "scimailupdate_browse_contacts.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/browse_contacts.bat %pathtohere%browse_contacts.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_andrewhash.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/andrewhash.bat %pathtohere%andrewhash.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_doPOW.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/doPOW.bat %pathtohere%doPOW.bat.new  || ( set "couldnotupdate=true" )
+bitsadmin /transfer "scimailupdate_checkPOW.bat" https://raw.githubusercontent.com/sciAndrew/SCImail/blob/master/checkPOW.bat %pathtohere%checkPOW.bat.new  || ( set "couldnotupdate=true" )
 
 if "%couldnotupdate%"=="true" ( goto lastline ) else (
 type browse_mail.bat.new > browse_mail.bat

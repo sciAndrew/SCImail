@@ -1,3 +1,3 @@
-29
-alpha 1.25
-fixed crash from updaters using wrong links
+30
+alpha 1.26
+added Proof Of Work to prevent spam
